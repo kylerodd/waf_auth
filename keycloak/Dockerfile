@@ -1,9 +1,10 @@
 FROM jboss/keycloak:latest
 
-COPY ./raincatcher-keycloak-theme/ /opt/jboss/keycloak/themes/raincatcher-keycloak-theme
+COPY ./imports/realm-export.json /tmp/import.json
 
 ENV KEYCLOAK_USER=admin \
     KEYCLOAK_PASSWORD=password \
+    KEYCLOAK_IMPORT=/tmp/import.json \
     DB_DATABASE=keycloak \
     DB_USER=keycloak \
     DB_PASSWORD=keycloak \
